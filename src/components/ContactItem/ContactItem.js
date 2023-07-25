@@ -1,23 +1,22 @@
 import React from 'react';
 import './ContactItem.css';
 
-function ContactItem(key, contact, onDelete, onEdit) {
-
+function ContactItem({ key, contact, onDelete, onEdit }) {
   // onItemDelete = (event) => {
   //   this.props.onDelete(this.props.contact.id);
   // };
 
-  function onItemDelete(event) {
-    onDelete(key);
-  };
+  function onItemDelete() {
+    onDelete(contact.id);
+  }
 
   // onContactEdit = (event) => {
   //   this.props.onEdit(this.props.contact);
   // };
 
-  function onContactEdit(event) {
+  function onContactEdit() {
     onEdit(contact);
-  };
+  }
 
   return (
     <div className="contact-item">

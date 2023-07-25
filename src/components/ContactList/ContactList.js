@@ -2,8 +2,7 @@ import React from 'react';
 import ContactItem from '../ContactItem/ContactItem';
 import './ContactList.css';
 
-function ContactList(contacts, onDelete, onAddContact, onEditContact) {
-
+function ContactList({ contacts, onDelete, onAddContact, onEditContact }) {
   return (
     <div className="list-container">
       <div className="item-container">

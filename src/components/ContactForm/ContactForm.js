@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import './ContactForm.css';
 
-function ContactForm({contactForEdit, onSubmit, onDelete, onChange}) {
+function ContactForm({ contactForEdit, onSubmit, onDelete }) {
   // state = {
   //   ...this.props.contactForEdit,
   // };
@@ -77,7 +77,7 @@ function ContactForm({contactForEdit, onSubmit, onDelete, onChange}) {
 
   function onContactDelete() {
     onDelete(...contactForEdit.id);
-    setContact(contactForEdit.createEmptyContact());
+    setContact(createEmptyContact());
   };
 
   return (
@@ -140,7 +140,7 @@ function ContactForm({contactForEdit, onSubmit, onDelete, onChange}) {
         <button id="save" type="submit">
           Save
         </button>
-        {this.state.id ? (
+        {contact.id ? (
           <button id="delete" type="button" onClick={onContactDelete}>
             Delete
           </button>

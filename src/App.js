@@ -61,8 +61,8 @@ function App() {
     contact.id = Date.now();
     const newContacts = [...contacts, contact];
     setContacts(newContacts);
-    setContactForEdit(createEmptyContact());
     saveState(newContacts);
+    setContactForEdit(createEmptyContact());
   }
 
   // function updateContact(contact) {
@@ -82,8 +82,8 @@ function App() {
     const updateContacts = contacts.map((item) =>
       item.id === contact.id ? contact : item);
     setContacts(updateContacts);
-    setContactForEdit(contact);
     saveState(updateContacts);
+    setContactForEdit(contact);
   }
 
   // saveContact = (contact) => {
@@ -126,8 +126,8 @@ function App() {
   function deleteContact(id) {
     const delContacts = contacts.filter((contact) => contact.id !== id);
     setContacts(delContacts);
-    setContactForEdit(createEmptyContact());
     saveState(delContacts);
+    setContactForEdit(createEmptyContact());
   }
 
   return (
@@ -144,7 +144,6 @@ function App() {
           contactForEdit={contactForEdit}
           onSubmit={saveContact}
           onDelete={deleteContact}
-          // onChange={changeForm}
         />
       </div>
     </div>
