@@ -1,21 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './ContactForm.css';
 
 function ContactForm({ contactForEdit, onSubmit, onDelete }) {
-  // state = {
-  //   ...this.props.contactForEdit,
-  // };
   
-  const [contact, setContact] = useState({...contactForEdit});
-
-  // createEmptyContact() {
-  //   return {
-  //     firstName: '',
-  //     lastName: '',
-  //     email: '',
-  //     phone: '',
-  //   };
-  // };
+  const [contact, setContact] = useState({ ...contactForEdit });
+  
+  useEffect(() => {
+    setContact(contactForEdit);
+  }, [contactForEdit]);
 
   function createEmptyContact() {
     return {
@@ -26,13 +18,6 @@ function ContactForm({ contactForEdit, onSubmit, onDelete }) {
     };
   };
 
-  // onInputChange = (event) => {
-  //   const { name, value } = event.target;
-  //   this.setState({
-  //     [name]: value
-  //   });
-  // };
-  
   function onInputChange(event) {
     const { name, value } = event.target;
     setContact((contact) => ({
@@ -40,13 +25,6 @@ function ContactForm({ contactForEdit, onSubmit, onDelete }) {
       [name]: value,
     }));
   };
-
-  // onClearField = (event) => {
-  //   const sibling = event.target.parentNode.firstChild;
-  //   this.setState({
-  //     [sibling.name]: '',
-  //   });
-  // };
 
   function onClearField(event) {
     const sibling = event.target.parentNode.firstChild;
@@ -56,24 +34,10 @@ function ContactForm({ contactForEdit, onSubmit, onDelete }) {
     }));
   };
 
-  // onFormSubmit = (event) => {
-  //   event.preventDefault();
-  //   this.props.onSubmit({
-  //     ...this.state,
-  //   });
-  // };
-
   function onFormSubmit(event) {
     event.preventDefault();
     onSubmit({...contact});
   };
-  
-  // onContactDelete = () => {
-  //   this.props.onDelete(this.props.contactForEdit.id);
-  //   this.setState({
-  //     ...this.createEmptyContact(),
-  //   });
-  // };
 
   function onContactDelete() {
     onDelete(...contactForEdit.id);

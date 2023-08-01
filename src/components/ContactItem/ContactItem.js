@@ -1,26 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './ContactItem.css';
 
-function ContactItem({ key, contact, onDelete, onEdit }) {
-  // onItemDelete = (event) => {
-  //   this.props.onDelete(this.props.contact.id);
-  // };
+function ContactItem({ contact, onDelete, onEdit }) {
+
+  useEffect(() => {
+    onContactEdit(contact)
+  }, [contact])
 
   function onItemDelete() {
     onDelete(contact.id);
   }
 
-  // onContactEdit = (event) => {
-  //   this.props.onEdit(this.props.contact);
-  // };
-
-  function onContactEdit() {
+  function onContactEdit(contact) {
     onEdit(contact);
   }
 
   return (
-    <div className="contact-item">
-      <p className="content" onDoubleClick={onContactEdit}>
+    <div className="contact-item" onDoubleClick={onContactEdit}>
+      <p className="content">
         {contact.firstName} {contact.lastName}
       </p>
       <span className="delete-btn" onClick={onItemDelete}>
