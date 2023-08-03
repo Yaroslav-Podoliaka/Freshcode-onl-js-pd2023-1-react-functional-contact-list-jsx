@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ContactItem from '../ContactItem/ContactItem';
 import './ContactList.css';
 

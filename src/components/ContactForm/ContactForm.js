@@ -40,7 +40,7 @@ function ContactForm({ contactForEdit, onSubmit, onDelete }) {
   };
 
   function onContactDelete() {
-    onDelete(...contactForEdit.id);
+    onDelete({...contactForEdit.id});
     setContact(createEmptyContact());
   };
 

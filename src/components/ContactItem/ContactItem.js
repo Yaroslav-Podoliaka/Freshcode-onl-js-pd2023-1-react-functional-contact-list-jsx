@@ -1,17 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './ContactItem.css';
 
 function ContactItem({ contact, onDelete, onEdit }) {
-
-  useEffect(() => {
-    onContactEdit(contact)
-  }, [contact])
 
   function onItemDelete() {
     onDelete(contact.id);
   }
 
-  function onContactEdit(contact) {
+  function onContactEdit() {
     onEdit(contact);
   }
 
