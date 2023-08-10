@@ -1,14 +1,25 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import API from '../../contact-servis';
+import {
+  deleteContact,
+  selectContact,
+} from "../../store/actions/actions";
 import './ContactItem.css';
 
-function ContactItem({ contact, onDelete, onEdit }) {
+function ContactItem({ contact }) {
+
+  const dispatch = useDispatch();
 
   function onItemDelete() {
-    onDelete(contact.id);
+    API.delete(`/${contact.id}`)
+      .then(({ status }) => console.log(status));
+    dispatch(deleteContact(contact.id));
   }
 
-  function onContactEdit() {
-    onEdit(contact);
+  function onContactEdit(event) {
+    event.stopPropagation()
+    dispatch(selectContact(contact));
   }
 
   return (

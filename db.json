@@ -1,0 +1,42 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "contacts": [
+    {
+      "firstName": "Ivan",
+      "lastName": "Ivanov",
+      "email": "ivanov245@gmail.com",
+      "phone": "0667451823",
+      "id": 2
+    },
+    {
+      "firstName": "Peter",
+      "lastName": "Petrov",
+      "email": "petrov146@gmail.com",
+      "phone": "0681251845",
+      "id": 3
+    },
+    {
+      "firstName": "Vasily",
+      "lastName": "Vasiliev",
+      "email": "vasiliev151@gmail.com",
+      "phone": "0968541213",
+      "id": 4
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
